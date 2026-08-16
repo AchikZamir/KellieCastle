@@ -24,7 +24,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-
   background:
     linear-gradient(90deg, rgba(9,18,13,.9) 0%, rgba(9,18,13,.62) 44%, rgba(9,18,13,.13) 78%),
     linear-gradient(0deg, rgba(7,16,11,.52), transparent 48%),
-    url("assets/kellies-castle.jpg") center 46% / cover;
+    url("kellies-castle.jpg") center 46% / cover;
 }
 .welcome::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 76% 35%, transparent 0 20%, rgba(7,16,11,.24) 72%); pointer-events: none; }
 .welcome-nav, .welcome-content, .welcome-footer { position: relative; z-index: 1; }
