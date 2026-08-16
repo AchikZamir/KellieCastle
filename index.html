@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17261f">
+  <meta name="description" content="An immersive digital guide to Kellie's Castle, Perak.">
+  <title>Kellie's Castle ù Immersive Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <section class="welcome" id="welcome">
+    <nav class="welcome-nav">
+      <a class="brand brand-light" href="#" aria-label="Kellie's Castle home">
+        <span class="brand-mark">KC</span>
+        <span>Kellie's Castle<small>Batu Gajah ù Perak</small></span>
+      </a>
+      <button class="language-btn" data-language aria-label="Change language">EN <span>&#9662;</span></button>
+    </nav>
+
+    <div class="welcome-content">
+      <p class="eyebrow"><span></span> A story left unfinished</p>
+      <h1>Step inside<br><em>the mystery.</em></h1>
+      <p class="welcome-copy">Walk through Kellie's Castle in a 360-degree view. Discover hidden rooms, remarkable stories, and the dream behind Perak's most intriguing landmark.</p>
+      <button class="primary-btn" id="startTour">
+        Begin the experience
+        <span class="button-icon">&rarr;</span>
+      </button>
+    </div>
+
+    <div class="welcome-footer">
+      <div class="nfc-note">
+        <span class="nfc-icon">)))</span>
+        <span><strong>NFC smart tour</strong><small>Tap markers around the castle to reveal stories</small></span>
+      </div>
+      <div class="scroll-note"><span>Scroll to discover</span><i></i></div>
+    </div>
+  </section>
+
+  <main class="tour" id="tour" aria-hidden="true">
+    <header class="tour-header">
+      <a class="brand" href="#" id="homeLink">
+        <span class="brand-mark">KC</span>
+        <span>Kellie's Castle<small>Immersive guide</small></span>
+      </a>
+      <div class="progress-wrap" aria-label="Tour progress">
+        <span id="progressText">01 / 06</span>
+        <div class="progress"><i id="progressBar"></i></div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="audioBtn" aria-label="Play audio guide" title="Audio guide">
+          <svg viewBox="0 0 24 24"><path d="M5 9v6h4l5 4V5L9 9H5Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48A4.5 4.5 0 0 0 17.5 12Z"/></svg>
+        </button>
+        <button class="language-btn dark" data-language>EN <span>&#9662;</span></button>
+      </div>
+    </header>
+
+    <div class="tour-layout">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow dark"><span></span> Explore the castle</p>
+          <h2>Your journey</h2>
+        </div>
+        <nav class="stop-list" id="stopList" aria-label="Tour locations"></nav>
+        <div class="visit-tip">
+          <span>&#10022;</span>
+          <div><strong>Look for the brass tags</strong><p>Tap your phone to open each story instantly.</p></div>
+        </div>
+      </aside>
+
+      <section class="viewer-panel">
+        <div id="panorama" aria-label="Interactive 360 degree view"></div>
+        <div class="viewer-shade"></div>
+        <div class="demo-ribbon">Kellie's Castle - Google Street View</div>
+        <div class="viewer-top">
+          <span class="floor-pill" id="floorPill">Ground floor</span>
+          <button class="map-btn" id="mapBtn"><span>&#8982;</span> View map</button>
+        </div>
+        <div class="drag-guide" id="dragGuide">
+          <span class="drag-icon">&harr;</span>
+          <span>Drag to look around</span>
+        </div>
+        <article class="story-card" id="storyCard">
+          <button class="card-close" id="cardClose" aria-label="Close story">&times;</button>
+          <p class="card-kicker" id="storyKicker">Stop 01</p>
+          <h2 id="storyTitle">The Main Hall</h2>
+          <p id="storyText"></p>
+          <button class="text-btn" id="factBtn">Reveal a hidden detail <span>&rarr;</span></button>
+        </article>
+        <div class="viewer-controls">
+          <button id="zoomOut" aria-label="Zoom out">&minus;</button>
+          <button id="resetView" aria-label="Reset view">&#8635;</button>
+          <button id="zoomIn" aria-label="Zoom in">+</button>
+        </div>
+      </section>
+    </div>
+
+    <nav class="mobile-tabs">
+      <button class="active" data-mobile-tab="explore">&#9673;<span>Explore</span></button>
+      <button data-mobile-tab="journey">&#9776;<span>Journey</span></button>
+      <button data-mobile-tab="map">&#8982;<span>Map</span></button>
+    </nav>
+  </main>
+
+  <dialog class="map-modal" id="mapModal">
+    <div class="modal-head">
+      <div><p class="eyebrow dark"><span></span> Castle directory</p><h2>Find your way</h2></div>
+      <button id="mapClose" aria-label="Close map">&times;</button>
+    </div>
+    <div class="floor-tabs" id="floorTabs">
+      <button class="active" data-floor="ground">Ground</button>
+      <button data-floor="first">Level 1</button>
+      <button data-floor="roof">Rooftop</button>
+    </div>
+    <div class="map-content">
+      <div class="floor-map" id="floorMap">
+        <svg viewBox="0 0 700 420" role="img" aria-label="Illustrated castle map">
+          <path class="map-wall" d="M89 55h451v66h73v239H370v-57H218v57H89V55Z"/>
+          <path class="map-room" d="M111 80h160v117H111zM292 80h225v117H292zM111 219h107v112H111zM240 219h130v62H240zM392 219h197v112H392z"/>
+          <path class="map-path" d="M283 198v42h98m-163 55h174M517 153h74"/>
+          <g class="map-marker active" data-stop="hall" transform="translate(190 139)"><circle r="18"/><text>1</text></g>
+          <g class="map-marker" data-stop="lift" transform="translate(560 150)"><circle r="18"/><text>2</text></g>
+          <g class="map-marker" data-stop="cellar" transform="translate(165 276)"><circle r="18"/><text>3</text></g>
+          <g class="map-marker" data-stop="drink" transform="translate(306 251)"><circle r="18"/><text>4</text></g>
+          <g class="map-marker" data-stop="room" transform="translate(485 276)"><circle r="18"/><text>5</text></g>
+        </svg>
+      </div>
+      <div class="map-legend">
+        <p id="mapFloorLabel">Ground floor</p>
+        <span><i class="you-are-here"></i> Selected stop</span>
+        <span><i class="other-stop"></i> Story location</span>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="fact-modal" id="factModal">
+    <button id="factClose" aria-label="Close detail">&times;</button>
+    <span class="fact-icon">&#10022;</span>
+    <p>Hidden gem</p>
+    <h2 id="factTitle"></h2>
+    <p id="factText"></p>
+    <button class="primary-btn compact" id="factDone">Continue exploring <span>&rarr;</span></button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
